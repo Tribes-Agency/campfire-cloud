@@ -211,7 +211,7 @@
 					}
 					if(!data.hasFileinfoInstalled) {
 						messages.push({
-							msg: t('core', 'The PHP module "fileinfo" is missing. It is strongly recommended to enable this module to get the best results with MIME type detection.'),
+							msg: t('core', 'The PHP "fileinfo" is missing. It is strongly recommended to enable this module to get the best results with MIME type detection.'),
 							type: OC.SetupChecks.MESSAGE_TYPE_INFO
 						});
 					}
@@ -420,6 +420,24 @@
 								'core',
 								'This instance is missing some recommended PHP modules. For improved performance and better compatibility it is highly recommended to install them.'
 							) + "<ul><code>" + listOfRecommendedPHPModules + "</code></ul>",
+							type: OC.SetupChecks.MESSAGE_TYPE_INFO
+						})
+					}
+					if (!data.isImagickEnabled) {
+						messages.push({
+							msg: t(
+								'core',
+								'Imagick is not enabled although the theming app is. For Favicon generation to work correctly, you need to install the imagick PHP extension.'
+							),
+							type: OC.SetupChecks.MESSAGE_TYPE_INFO
+						})
+					}
+					if (!data.areWebauthnExtensionsEnabled) {
+						messages.push({
+							msg: t(
+								'core',
+								'The PHP extensions gmp or bcmath are not enabled. For Webauthn to work correctly, please enable these extensions.'
+							),
 							type: OC.SetupChecks.MESSAGE_TYPE_INFO
 						})
 					}
