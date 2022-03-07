@@ -734,6 +734,8 @@ code {
 	.dirtree {
 		flex-wrap: wrap;
 		box-sizing: border-box;
+		padding-left:50px;
+		padding-right:50px;
 
 		div:first-child a {
 			background-image: var(--icon-home-000);
